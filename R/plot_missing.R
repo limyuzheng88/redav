@@ -45,7 +45,8 @@ plot_missing <- function(x, percent = TRUE) {
     ggplot2::scale_alpha_manual(values = c(.7, 1)) +	
     ggplot2::ylab("missing pattern") +	
     ggplot2::guides(fill = "none", alpha = "none") +	
-    ggplot2::theme_classic(12)	
+    ggplot2::theme_classic(12) +
+    ggplot2::theme(axis.text.x = element_text(angle = 45, hjust = 1))
   
   # check for "none missing" pattern
   none_missing_pattern <- na_count_by_pattern %>%
@@ -69,7 +70,8 @@ plot_missing <- function(x, percent = TRUE) {
     ggplot2::ylab(ifelse(percent, "% rows \n missing:", "num rows \n missing:")) +	
     ggplot2::theme_linedraw(12) + 	
     ggplot2::theme(panel.grid.major.x = ggplot2::element_blank(),	
-          panel.grid.minor.x = ggplot2::element_blank())	
+          panel.grid.minor.x = ggplot2::element_blank()) +
+    ggplot2::theme(axis.text.x = element_text(angle = 45, hjust = 1))
   
   missing_by_pattern_plot <- 
     ggplot2::ggplot(na_count_by_pattern, ggplot2::aes(.data$pattern, .data$count/denom, alpha = .data$none_missing)) +
