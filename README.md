@@ -36,7 +36,7 @@ option to label axes as percents or numbers.
 This package is not on CRAN. Install with:
 
 ``` r
-remotes::install_github("jtr13/redav")
+remotes::install_github("limyuzheng88/redav")
 ```
 
 ## Examples
